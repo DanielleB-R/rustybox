@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::libbb::xfuncs_printf::xmalloc;
@@ -187,8 +188,6 @@ extern "C" {
    * in the parent. It must be a macro. */
   #[no_mangle]
   fn xfork() -> pid_t;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
   #[no_mangle]

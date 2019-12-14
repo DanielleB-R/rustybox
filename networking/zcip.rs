@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::ptr_to_globals::bb_errno;
 use c2rust_asm_casts;
@@ -62,8 +63,6 @@ extern "C" {
   fn spawn_and_wait(argv: *mut *mut libc::c_char) -> libc::c_int;
   #[no_mangle]
   fn bb_daemonize_or_rexec(flags: libc::c_int);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
   #[no_mangle]

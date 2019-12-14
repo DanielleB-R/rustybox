@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::networking::udhcp::common::BUG_bb_strtou32_unimplemented;
@@ -114,8 +115,6 @@ extern "C" {
   fn spawn_and_wait(argv: *mut *mut libc::c_char) -> libc::c_int;
   #[no_mangle]
   fn bb_daemonize_or_rexec(flags: libc::c_int);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   /* BTW, surprisingly, changing API to
    *   llist_t *llist_add_to(llist_t *old_head, void *data)
    * etc does not result in smaller code... */

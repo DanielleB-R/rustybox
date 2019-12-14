@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::close;
 extern "C" {
@@ -6,8 +7,6 @@ extern "C" {
   static mut optind: libc::c_int;
   #[no_mangle]
   fn xopen(pathname: *const libc::c_char, flags: libc::c_int) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn ioctl_or_perror_and_die(
     fd: libc::c_int,

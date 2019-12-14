@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::puts;
 extern "C" {
@@ -6,8 +7,6 @@ extern "C" {
 
   #[no_mangle]
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut xfunc_error_retval: u8;
   #[no_mangle]

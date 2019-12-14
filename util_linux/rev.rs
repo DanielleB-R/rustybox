@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use crate::librb::size_t;
 use libc;
@@ -30,8 +31,6 @@ extern "C" {
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
   #[no_mangle]
   static bb_argv_dash: [*const libc::c_char; 0];
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_mbstowcs(dest: *mut wchar_t, src: *const libc::c_char, n: size_t) -> size_t;
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::libbb::skip_whitespace::skip_whitespace;
 use crate::libbb::xfuncs_printf::xmalloc;
@@ -46,8 +47,6 @@ extern "C" {
   fn fopen_for_read(path: *const libc::c_char) -> *mut FILE;
   #[no_mangle]
   fn itoa(n: libc::c_int) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn llist_pop(elm: *mut *mut llist_t) -> *mut libc::c_void;
   #[no_mangle]

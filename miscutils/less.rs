@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::libbb::xfuncs_printf::xmalloc;
 use crate::librb::signal::__sighandler_t;
@@ -127,8 +128,6 @@ extern "C" {
   ) -> libc::c_uint;
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

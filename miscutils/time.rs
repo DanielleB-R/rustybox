@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::librb::__syscall_slong_t;
 use crate::librb::signal::__sighandler_t;
@@ -37,8 +38,6 @@ extern "C" {
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
   #[no_mangle]
   fn BB_EXECVP_or_die(argv: *mut *mut libc::c_char) -> !;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_perror_msg(s: *const libc::c_char);
   #[no_mangle]

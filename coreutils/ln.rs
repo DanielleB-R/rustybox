@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use libc;
 use libc::free;
@@ -23,8 +24,6 @@ extern "C" {
   fn bb_get_last_path_component_strip(path: *mut libc::c_char) -> *mut libc::c_char;
   #[no_mangle]
   fn xasprintf(format: *const libc::c_char, _: ...) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg_and_die(s: *const libc::c_char, _: ...) -> !;
   #[no_mangle]

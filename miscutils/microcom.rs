@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::librb::size_t;
 use crate::librb::smallint;
@@ -55,8 +56,6 @@ extern "C" {
   fn full_write(fd: libc::c_int, buf: *const libc::c_void, count: size_t) -> ssize_t;
   #[no_mangle]
   fn safe_poll(ufds: *mut pollfd, nfds: nfds_t, timeout_ms: libc::c_int) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_perror_msg(s: *const libc::c_char, _: ...);
   #[no_mangle]

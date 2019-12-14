@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::size_t;
 use crate::librb::smallint;
 use libc;
@@ -29,8 +30,6 @@ extern "C" {
   fn xatou_range(str: *const libc::c_char, l: libc::c_uint, u: libc::c_uint) -> libc::c_uint;
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_perror_msg(s: *const libc::c_char);
 }

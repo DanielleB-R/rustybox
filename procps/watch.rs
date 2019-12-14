@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::free;
 use libc::printf;
@@ -21,8 +22,6 @@ extern "C" {
   fn sleep_for_duration(duration: duration_t);
   #[no_mangle]
   fn parse_duration_str(str: *mut libc::c_char) -> duration_t;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn get_terminal_width(fd: libc::c_int) -> libc::c_int;
 }

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::alarm;
 use libc::atoi;
@@ -52,8 +53,6 @@ extern "C" {
   fn safe_gethostname() -> *mut libc::c_char;
   #[no_mangle]
   fn xuid2uname(uid: uid_t) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn llist_add_to_end(list_head: *mut *mut llist_t, data: *mut libc::c_void);
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 extern "C" {
   pub type tls_handshake_data;
@@ -9,8 +10,6 @@ extern "C" {
   fn tls_handshake(tls: *mut tls_state_t, sni: *const libc::c_char);
   #[no_mangle]
   fn tls_run_copy_loop(tls: *mut tls_state_t, flags: libc::c_uint);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
 }

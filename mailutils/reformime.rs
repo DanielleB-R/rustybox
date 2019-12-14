@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::signal::__sighandler_t;
 use crate::librb::size_t;
 
@@ -64,8 +65,6 @@ extern "C" {
   fn BB_EXECVP_or_die(argv: *mut *mut libc::c_char) -> !;
   #[no_mangle]
   fn wait4pid(pid: pid_t) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg_and_die(s: *const libc::c_char, _: ...) -> !;
   #[no_mangle]

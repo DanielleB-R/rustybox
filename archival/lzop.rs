@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::size_t;
 use crate::librb::smallint;
 use c2rust_asm_casts;
@@ -31,8 +32,6 @@ extern "C" {
   fn xwrite(fd: libc::c_int, buf: *const libc::c_void, count: size_t);
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg_and_die(s: *const libc::c_char, _: ...) -> !;
   #[no_mangle]

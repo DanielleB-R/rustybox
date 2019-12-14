@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use libc;
 use libc::free;
@@ -22,8 +23,6 @@ extern "C" {
   fn safe_read(fd: libc::c_int, buf: *mut libc::c_void, count: size_t) -> ssize_t;
   #[no_mangle]
   fn xwrite(fd: libc::c_int, buf: *const libc::c_void, count: size_t);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use crate::librb::smallint;
 use libc;
@@ -28,8 +29,6 @@ extern "C" {
     u: libc::c_uint,
   ) -> libc::c_uint;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn alloc_dumper() -> *mut dumper_t;

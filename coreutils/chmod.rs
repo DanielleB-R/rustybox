@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::chmod;
 use libc::mode_t;
@@ -35,8 +36,6 @@ extern "C" {
   ) -> libc::c_int;
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg_and_die(s: *const libc::c_char, _: ...) -> !;
   #[no_mangle]

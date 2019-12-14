@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::size_t;
 use c2rust_asm_casts;
 use c2rust_asm_casts::AsmCastTrait;
@@ -34,8 +35,6 @@ extern "C" {
   #[no_mangle]
   fn xfopen_for_read(path: *const libc::c_char) -> *mut FILE;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn bb_simple_error_msg(s: *const libc::c_char);

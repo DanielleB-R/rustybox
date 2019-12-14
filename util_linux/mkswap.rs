@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::size_t;
 use crate::librb::uoff_t;
 
@@ -35,8 +36,6 @@ extern "C" {
   ) -> *mut libc::c_char;
   #[no_mangle]
   fn generate_uuid(buf: *mut u8);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn fsync(__fd: libc::c_int) -> libc::c_int;
   #[no_mangle]

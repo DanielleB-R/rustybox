@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use crate::librb::size_t;
 use crate::librb::uoff_t;
@@ -61,8 +62,6 @@ extern "C" {
   #[no_mangle]
   static mut option_mask32: u32;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn bb_error_msg(s: *const libc::c_char, _: ...);

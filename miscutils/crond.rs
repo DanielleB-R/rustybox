@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::skip_whitespace::skip_whitespace;
 use crate::libpwdgrp::pwd_grp::bb_internal_getpwnam;
@@ -98,8 +99,6 @@ extern "C" {
   fn fopen_for_read(path: *const libc::c_char) -> *mut FILE;
   #[no_mangle]
   fn bb_daemonize_or_rexec(flags: libc::c_int);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn write_pidfile_std_path_and_ext(path: *const libc::c_char);
   #[no_mangle]

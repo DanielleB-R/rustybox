@@ -1,9 +1,8 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 extern "C" {
   #[no_mangle]
   static mut optind: libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_perror_msg_and_die(s: *const libc::c_char, _: ...) -> !;
   #[no_mangle]

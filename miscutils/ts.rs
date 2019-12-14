@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::free;
 use libc::printf;
@@ -26,8 +27,6 @@ extern "C" {
   fn is_suffixed_with(string: *const libc::c_char, key: *const libc::c_char) -> *mut libc::c_char;
   #[no_mangle]
   fn xmalloc_fgets(file: *mut FILE) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut bb_common_bufsiz1: [libc::c_char; 0];
 }

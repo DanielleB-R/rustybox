@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::size_t;
 use crate::librb::uoff_t;
 use libc;
@@ -17,8 +18,6 @@ extern "C" {
   fn safe_read(fd: libc::c_int, buf: *mut libc::c_void, count: size_t) -> ssize_t;
   #[no_mangle]
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn crc32_filltable(tbl256: *mut u32, endian: libc::c_int) -> *mut u32;
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::llist::llist_t;
 
 use libc;
@@ -19,8 +20,6 @@ extern "C" {
   fn utoa(n: libc::c_uint) -> *mut libc::c_char;
   #[no_mangle]
   fn xatoull(str: *const libc::c_char) -> libc::c_ulonglong;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn llist_free(
     elm: *mut llist_t,

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libpwdgrp::pwd_grp::bb_internal_getgrgid;
 use crate::librb::size_t;
 use libc;
@@ -30,8 +31,6 @@ extern "C" {
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
   #[no_mangle]
   fn xatoi(str: *const libc::c_char) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

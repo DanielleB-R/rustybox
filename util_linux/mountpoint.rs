@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 
 use libc;
@@ -21,8 +22,6 @@ extern "C" {
   #[no_mangle]
   fn xasprintf(format: *const libc::c_char, _: ...) -> *mut libc::c_char;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn bb_perror_msg(s: *const libc::c_char, _: ...);

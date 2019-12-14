@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use libc;
 use libc::closelog;
@@ -20,8 +21,6 @@ extern "C" {
   fn xstrdup(s: *const libc::c_char) -> *mut libc::c_char;
   #[no_mangle]
   fn xgetpwnam(name: *const libc::c_char) -> *mut passwd;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_error_msg(s: *const libc::c_char);
   #[no_mangle]

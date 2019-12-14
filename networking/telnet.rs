@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::getenv;
 use libc::kill;
@@ -58,8 +59,6 @@ extern "C" {
   fn full_write(fd: libc::c_int, buf: *const libc::c_void, count: size_t) -> ssize_t;
   #[no_mangle]
   fn full_write1_str(str: *const libc::c_char) -> ssize_t;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   /* NB: typically you want to pass fd 0, not 1. Think 'applet | grep something' */

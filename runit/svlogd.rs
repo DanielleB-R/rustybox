@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::librb::size_t;
 use crate::librb::smallint;
@@ -140,8 +141,6 @@ extern "C" {
   fn safe_waitpid(pid: pid_t, wstat: *mut libc::c_int, options: libc::c_int) -> pid_t;
   #[no_mangle]
   fn wait_any_nohang(wstat: *mut libc::c_int) -> pid_t;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

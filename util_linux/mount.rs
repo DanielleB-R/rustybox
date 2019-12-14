@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::llist::llist_t;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::libbb::skip_whitespace::skip_whitespace;
@@ -94,8 +95,6 @@ extern "C" {
   #[no_mangle]
   static mut option_mask32: u32;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn llist_add_to_end(list_head: *mut *mut llist_t, data: *mut libc::c_void);

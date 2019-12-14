@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 extern "C" {
   #[no_mangle]
@@ -9,8 +10,6 @@ extern "C" {
   ) -> libc::c_int;
   #[no_mangle]
   fn xopen(pathname: *const libc::c_char, flags: libc::c_int) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 }
 
 /*

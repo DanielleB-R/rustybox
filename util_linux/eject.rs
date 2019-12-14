@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::ioctl;
 extern "C" {
@@ -11,8 +12,6 @@ extern "C" {
   fn xmove_fd(_: libc::c_int, _: libc::c_int);
   #[no_mangle]
   fn xopen_nonblocking(pathname: *const libc::c_char) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_error_msg_and_die(s: *const libc::c_char) -> !;
   #[no_mangle]

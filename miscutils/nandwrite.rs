@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::xfuncs_printf::xmalloc;
 use crate::librb::size_t;
@@ -27,8 +28,6 @@ extern "C" {
   fn xwrite(fd: libc::c_int, buf: *const libc::c_void, count: size_t);
   #[no_mangle]
   fn xstrtou(str: *const libc::c_char, b: libc::c_int) -> libc::c_uint;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn getopt32long(
     argv: *mut *mut libc::c_char,

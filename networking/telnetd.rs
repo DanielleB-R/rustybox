@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::librb::signal::__sighandler_t;
@@ -107,8 +108,6 @@ extern "C" {
   fn bb_daemonize_or_rexec(flags: libc::c_int);
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::ptr_to_globals::bb_errno;
 use libc;
@@ -39,8 +40,6 @@ extern "C" {
   fn xgetpwnam(name: *const libc::c_char) -> *mut passwd;
   #[no_mangle]
   fn xuid2uname(uid: uid_t) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use c2rust_asm_casts;
 use c2rust_asm_casts::AsmCastTrait;
 
@@ -58,8 +59,6 @@ extern "C" {
   fn bb_daemonize_or_rexec(flags: libc::c_int);
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
   #[no_mangle]

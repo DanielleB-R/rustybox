@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::libbb::xfuncs_printf::xmalloc;
 use libc;
@@ -99,8 +100,6 @@ extern "C" {
   fn make_all_argv_opts(argv: *mut *mut libc::c_char);
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut die_func: Option<unsafe extern "C" fn() -> ()>;
   #[no_mangle]

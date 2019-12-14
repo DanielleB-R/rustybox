@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::printf;
 extern "C" {
@@ -13,8 +14,6 @@ extern "C" {
   fn getc_unlocked(__stream: *mut FILE) -> libc::c_int;
   #[no_mangle]
   fn fputs_unlocked(__s: *const libc::c_char, __stream: *mut FILE) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn xzalloc(size: size_t) -> *mut libc::c_void;
   #[no_mangle]

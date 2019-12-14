@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::xfuncs_printf::xmalloc;
 use crate::librb::md5_ctx_t;
@@ -44,8 +45,6 @@ extern "C" {
     count: libc::c_int,
   ) -> *mut libc::c_char;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn xfunc_die() -> !;

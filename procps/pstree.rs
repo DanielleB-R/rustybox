@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use libc;
 use libc::putchar_unlocked;
@@ -21,8 +22,6 @@ extern "C" {
   fn xuname2uid(name: *const libc::c_char) -> libc::c_long;
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_error_msg_and_die(s: *const libc::c_char) -> !;
   #[no_mangle]

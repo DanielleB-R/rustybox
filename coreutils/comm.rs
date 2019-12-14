@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::free;
 use libc::putchar_unlocked;
@@ -9,8 +10,6 @@ extern "C" {
   #[no_mangle]
   static mut optind: libc::c_int;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn xmalloc_fgetline(file: *mut FILE) -> *mut libc::c_char;

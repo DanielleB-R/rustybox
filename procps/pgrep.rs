@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use c2rust_bitfields;
 use c2rust_bitfields::BitfieldStruct;
 
@@ -22,8 +23,6 @@ extern "C" {
   fn xstrdup(s: *const libc::c_char) -> *mut libc::c_char;
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::libbb::xfuncs_printf::xmalloc;
 use c2rust_bitfields;
@@ -116,8 +117,6 @@ extern "C" {
   /* Same as wait4pid(spawn(argv)), but with NOFORK/NOEXEC if configured: */
   #[no_mangle]
   fn spawn_and_wait(argv: *mut *mut libc::c_char) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

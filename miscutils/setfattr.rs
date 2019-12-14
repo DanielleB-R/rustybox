@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 extern "C" {
   #[no_mangle]
@@ -24,8 +25,6 @@ extern "C" {
   static mut optind: libc::c_int;
   #[no_mangle]
   fn strlen(__s: *const libc::c_char) -> size_t;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_perror_msg(s: *const libc::c_char);
 }

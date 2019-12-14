@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::libbb::skip_whitespace::skip_whitespace;
 use crate::libbb::xfuncs_printf::xmalloc;
@@ -247,8 +248,6 @@ extern "C" {
   fn run_nofork_applet(applet_no: libc::c_int, argv: *mut *mut libc::c_char) -> libc::c_int;
   #[no_mangle]
   fn find_applet_by_name(name: *const libc::c_char) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut xfunc_error_retval: u8;
   #[no_mangle]

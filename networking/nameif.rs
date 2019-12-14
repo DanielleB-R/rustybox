@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::skip_whitespace::skip_whitespace;
 use crate::libbb::xfuncs_printf::xmalloc;
@@ -34,8 +35,6 @@ extern "C" {
   fn xfopen_for_read(path: *const libc::c_char) -> *mut FILE;
   #[no_mangle]
   fn xatoi_positive(numstr: *const libc::c_char) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
   #[no_mangle]

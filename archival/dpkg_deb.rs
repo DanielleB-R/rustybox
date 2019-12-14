@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::archival::libarchive::bb_archive::file_header_t;
 use crate::libbb::llist::llist_t;
 
@@ -17,8 +18,6 @@ extern "C" {
   #[no_mangle]
   fn xopen_stdin(pathname: *const libc::c_char) -> libc::c_int;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn llist_add_to(old_head: *mut *mut llist_t, data: *mut libc::c_void);

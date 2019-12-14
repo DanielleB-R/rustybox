@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::llist::llist_t;
 use crate::librb::signal::__sighandler_t;
 use crate::librb::size_t;
@@ -56,8 +57,6 @@ extern "C" {
   fn full_write(fd: libc::c_int, buf_0: *const libc::c_void, count: size_t) -> ssize_t;
   #[no_mangle]
   fn xwrite(fd: libc::c_int, buf_0: *const libc::c_void, count: size_t);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn llist_add_to_end(list_head: *mut *mut llist_t, data: *mut libc::c_void);
   #[no_mangle]

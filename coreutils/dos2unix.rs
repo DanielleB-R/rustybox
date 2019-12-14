@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use libc;
 use libc::fchmod;
@@ -38,8 +39,6 @@ extern "C" {
   fn xfopen_for_read(path: *const libc::c_char) -> *mut FILE;
   #[no_mangle]
   fn xfdopen_for_write(fd: libc::c_int) -> *mut FILE;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_perror_msg_and_die(s: *const libc::c_char) -> !;
   #[no_mangle]

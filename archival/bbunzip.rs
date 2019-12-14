@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::archival::libarchive::bb_archive::transformer_state_t;
 use crate::libbb::appletlib::applet_name;
 use crate::librb::size_t;
@@ -63,8 +64,6 @@ extern "C" {
   #[no_mangle]
   static mut option_mask32: u32;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn getopt32long(

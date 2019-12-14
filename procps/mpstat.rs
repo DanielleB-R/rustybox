@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::skip_whitespace::skip_whitespace;
 use crate::libbb::xfuncs_printf::xmalloc;
 use libc;
@@ -77,8 +78,6 @@ extern "C" {
   fn xfopen_for_read(path: *const libc::c_char) -> *mut FILE;
   #[no_mangle]
   fn xatoi_positive(numstr: *const libc::c_char) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

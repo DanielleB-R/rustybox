@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::size_t;
 use crate::librb::smallint;
 
@@ -37,8 +38,6 @@ extern "C" {
   fn record_signo(signo: libc::c_int);
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_perror_msg(s: *const libc::c_char);
   #[no_mangle]

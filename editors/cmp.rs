@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::fprintf;
 extern "C" {
@@ -24,8 +25,6 @@ extern "C" {
     l: libc::c_ulonglong,
     u: libc::c_ulonglong,
   ) -> libc::c_ulonglong;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
   #[no_mangle]

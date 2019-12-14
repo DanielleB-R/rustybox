@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::fchmod;
 use libc::free;
@@ -53,8 +54,6 @@ extern "C" {
     endp: *mut *mut libc::c_char,
     base: libc::c_int,
   ) -> libc::c_uint;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_error_msg_and_die(s: *const libc::c_char) -> !;
   #[no_mangle]

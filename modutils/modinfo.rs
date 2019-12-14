@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::free;
 use libc::printf;
@@ -39,8 +40,6 @@ extern "C" {
   fn xfopen_for_read(path: *const libc::c_char) -> *mut FILE;
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg(s: *const libc::c_char, _: ...);
   #[no_mangle]

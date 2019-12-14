@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::printf;
 use libc::ptrdiff_t;
@@ -7,8 +8,6 @@ extern "C" {
   fn get_console_fd_or_die() -> libc::c_int;
   #[no_mangle]
   fn xopen_nonblocking(pathname: *const libc::c_char) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_xioctl(
     fd: libc::c_int,

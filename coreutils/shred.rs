@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::chmod;
 use libc::fstat;
@@ -24,8 +25,6 @@ extern "C" {
   fn xlseek(fd: libc::c_int, offset: off_t, whence: libc::c_int) -> off_t;
   #[no_mangle]
   fn xclose(fd: libc::c_int);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
 }

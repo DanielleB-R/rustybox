@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::signal::__sighandler_t;
 use crate::librb::size_t;
 use libc;
@@ -28,8 +29,6 @@ extern "C" {
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
   #[no_mangle]
   fn fopen_or_warn(filename: *const libc::c_char, mode: *const libc::c_char) -> *mut FILE;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut bb_common_bufsiz1: [libc::c_char; 0];
 }

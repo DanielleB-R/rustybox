@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::signal::__sighandler_t;
 use crate::librb::size_t;
 use c2rust_asm_casts;
@@ -28,8 +29,6 @@ extern "C" {
   fn create_and_connect_stream_or_die(peer: *const libc::c_char, port: libc::c_int) -> libc::c_int;
   #[no_mangle]
   fn safe_read(fd: libc::c_int, buf: *mut libc::c_void, count: size_t) -> ssize_t;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_error_msg(s: *const libc::c_char);
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 
 use libc;
@@ -43,8 +44,6 @@ extern "C" {
   fn xwrite_str(fd: libc::c_int, str: *const libc::c_char);
   #[no_mangle]
   static mut option_mask32: u32;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg(s: *const libc::c_char, _: ...);
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::pid_t;
 use libc::printf;
@@ -48,8 +49,6 @@ extern "C" {
   #[no_mangle]
   fn BB_EXECVP_or_die(argv: *mut *mut libc::c_char) -> !;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn bb_show_usage() -> !;

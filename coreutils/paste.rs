@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::free;
 use libc::printf;
@@ -26,8 +27,6 @@ extern "C" {
   fn fclose_if_not_stdin(file: *mut FILE) -> libc::c_int;
   #[no_mangle]
   fn fopen_or_warn_stdin(filename: *const libc::c_char) -> *mut FILE;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn xfunc_die() -> !;
   #[no_mangle]

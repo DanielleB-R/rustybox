@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::librb::size_t;
 
@@ -35,8 +36,6 @@ extern "C" {
     s: *const libc::c_char,
     xname2id: Option<unsafe extern "C" fn(_: *const libc::c_char) -> libc::c_long>,
   ) -> libc::c_ulong;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg(s: *const libc::c_char, _: ...);
   #[no_mangle]

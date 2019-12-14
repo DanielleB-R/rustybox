@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::close;
 extern "C" {
@@ -20,8 +21,6 @@ extern "C" {
   fn xatou_sfx(str: *const libc::c_char, sfx: *const suffix_mult) -> libc::c_uint;
   #[no_mangle]
   fn bb_daemonize_or_rexec(flags: libc::c_int);
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn write_pidfile_std_path_and_ext(path: *const libc::c_char);
   #[no_mangle]

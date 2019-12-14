@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use crate::librb::signal::__sighandler_t;
 use crate::librb::size_t;
@@ -49,8 +50,6 @@ extern "C" {
   fn xfopen_for_read(path: *const libc::c_char) -> *mut FILE;
   #[no_mangle]
   fn xatoull(str: *const libc::c_char) -> libc::c_ulonglong;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut msg_eol: *const libc::c_char;
   #[no_mangle]

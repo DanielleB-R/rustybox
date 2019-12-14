@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libpwdgrp::pwd_grp::bb_internal_getpwnam;
 use crate::librb::signal::__sighandler_t;
@@ -108,8 +109,6 @@ extern "C" {
   fn bb_daemonize_or_rexec(flags: libc::c_int);
   #[no_mangle]
   fn sanitize_env_if_suid() -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_error_msg_and_die(s: *const libc::c_char) -> !;
   #[no_mangle]

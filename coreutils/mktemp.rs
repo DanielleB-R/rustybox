@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::getenv;
 use libc::puts;
@@ -14,8 +15,6 @@ extern "C" {
 
   #[no_mangle]
   fn xstrdup(s: *const libc::c_char) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_perror_nomsg_and_die() -> !;
   #[no_mangle]

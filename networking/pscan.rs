@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use c2rust_asm_casts;
 use c2rust_asm_casts::AsmCastTrait;
@@ -45,8 +46,6 @@ extern "C" {
   fn set_nport(sa: *mut sockaddr, port: libc::c_uint);
   #[no_mangle]
   fn xatou_range(str: *const libc::c_char, l: libc::c_uint, u: libc::c_uint) -> libc::c_uint;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_perror_nomsg_and_die() -> !;
 }

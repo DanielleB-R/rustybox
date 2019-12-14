@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use libc;
 use libc::chdir;
@@ -25,8 +26,6 @@ extern "C" {
   ) -> *mut libc::c_void;
   #[no_mangle]
   fn xstrtoull(str: *const libc::c_char, b: libc::c_int) -> libc::c_ulonglong;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg_and_die(s: *const libc::c_char, _: ...) -> !;
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use c2rust_bitfields;
 use c2rust_bitfields::BitfieldStruct;
 
@@ -11,8 +12,6 @@ extern "C" {
   fn strlen(__s: *const libc::c_char) -> size_t;
   #[no_mangle]
   fn xatoll(str: *const libc::c_char) -> libc::c_longlong;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_perror_nomsg_and_die() -> !;
   #[no_mangle]

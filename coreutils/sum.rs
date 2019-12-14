@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::close;
 use libc::printf;
@@ -9,8 +10,6 @@ extern "C" {
   fn open_or_warn_stdin(pathname: *const libc::c_char) -> libc::c_int;
   #[no_mangle]
   fn safe_read(fd: libc::c_int, buf_0: *mut libc::c_void, count: size_t) -> ssize_t;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_simple_perror_msg(s: *const libc::c_char);
   #[no_mangle]

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::geteuid;
 use libc::printf;
@@ -16,8 +17,6 @@ extern "C" {
   fn xuname2uid(name: *const libc::c_char) -> libc::c_long;
   #[no_mangle]
   fn xgroup2gid(name: *const libc::c_char) -> libc::c_long;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn ioctl_or_perror_and_die(
     fd: libc::c_int,

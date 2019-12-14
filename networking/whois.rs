@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::skip_whitespace::skip_whitespace;
 use libc;
 use libc::fclose;
@@ -39,8 +40,6 @@ extern "C" {
   fn xfdopen_for_read(fd: libc::c_int) -> *mut FILE;
   #[no_mangle]
   fn str_tolower(str: *mut libc::c_char) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 }
 
 use crate::librb::size_t;

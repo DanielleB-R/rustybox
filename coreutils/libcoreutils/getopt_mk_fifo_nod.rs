@@ -1,9 +1,8 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::umask;
 extern "C" {
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_parse_mode(s: *const libc::c_char, cur_mode: libc::c_uint) -> libc::c_int;
 }

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::skip_whitespace::skip_whitespace;
 use libc;
 use libc::close;
@@ -29,8 +30,6 @@ extern "C" {
   fn die_if_ferror(file: *mut FILE, msg: *const libc::c_char);
   #[no_mangle]
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
 }

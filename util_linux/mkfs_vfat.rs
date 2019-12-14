@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use super::mkfs_ext2::BUG_wrong_field_size;
 use crate::librb::size_t;
 use crate::librb::uoff_t;
@@ -47,8 +48,6 @@ extern "C" {
   #[no_mangle]
   fn xwrite(fd: libc::c_int, buf: *const libc::c_void, count: size_t);
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn bb_error_msg(s: *const libc::c_char, _: ...);

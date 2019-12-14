@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::librb::size_t;
 use libc;
@@ -27,8 +28,6 @@ extern "C" {
    * But potentially slow, don't use in one-billion-times loops */
   #[no_mangle]
   fn bb_putchar(ch: libc::c_int) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
 }
 

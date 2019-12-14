@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use libc;
 use libc::close;
@@ -35,8 +36,6 @@ extern "C" {
   static bkm_suffixes: [suffix_mult; 0];
   #[no_mangle]
   fn xatou_sfx(str: *const libc::c_char, sfx: *const suffix_mult) -> libc::c_uint;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_error_msg(s: *const libc::c_char, _: ...);
   #[no_mangle]

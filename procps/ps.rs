@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::xfuncs_printf::xmalloc;
 use libc;
 use libc::isatty;
@@ -43,8 +44,6 @@ extern "C" {
   fn get_cached_username(uid: uid_t) -> *const libc::c_char;
   #[no_mangle]
   fn get_cached_groupname(gid: gid_t) -> *const libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn llist_pop(elm: *mut *mut llist_t) -> *mut libc::c_void;
   #[no_mangle]

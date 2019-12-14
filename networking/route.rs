@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use c2rust_asm_casts;
 use c2rust_asm_casts::AsmCastTrait;
 
@@ -54,8 +55,6 @@ extern "C" {
   ) -> libc::c_ulonglong;
   #[no_mangle]
   fn xatoull(str: *const libc::c_char) -> libc::c_ulonglong;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

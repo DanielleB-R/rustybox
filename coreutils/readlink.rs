@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::smallint;
 use libc;
 use libc::free;
@@ -13,8 +14,6 @@ extern "C" {
   fn xmalloc_readlink_or_warn(path: *const libc::c_char) -> *mut libc::c_char;
   #[no_mangle]
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
 }

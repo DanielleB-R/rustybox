@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 extern "C" {
   #[no_mangle]
@@ -6,8 +7,6 @@ extern "C" {
   fn remove_file(path: *const libc::c_char, flags: libc::c_int) -> libc::c_int;
   #[no_mangle]
   fn bb_get_last_path_component_strip(path: *mut libc::c_char) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
   #[no_mangle]

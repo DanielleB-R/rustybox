@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::size_t;
 
 use crate::libbb::appletlib::applet_name;
@@ -57,8 +58,6 @@ extern "C" {
   fn safe_gethostname() -> *mut libc::c_char;
   #[no_mangle]
   fn xuid2uname(uid: uid_t) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn xfunc_die() -> !;
   #[no_mangle]

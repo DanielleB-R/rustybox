@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use libc;
 use libc::printf;
 use libc::puts;
@@ -25,8 +26,6 @@ extern "C" {
   fn bb_get_last_path_component_strip(path: *mut libc::c_char) -> *mut libc::c_char;
   #[no_mangle]
   fn xasprintf(format: *const libc::c_char, _: ...) -> *mut libc::c_char;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static ptr_to_globals: *mut globals;
   #[no_mangle]

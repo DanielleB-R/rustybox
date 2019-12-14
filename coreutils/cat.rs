@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::size_t;
 use crate::librb::smallint;
 use libc;
@@ -22,8 +23,6 @@ extern "C" {
   fn visible(ch: libc::c_uint, buf: *mut libc::c_char, flags: libc::c_int);
   #[no_mangle]
   fn fflush_stdout_and_exit(retval: libc::c_int) -> !;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   /* Applets which are useful from another applets */
   #[no_mangle]
   fn bb_cat(argv: *mut *mut libc::c_char) -> libc::c_int;

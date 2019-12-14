@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use libc;
 use libc::close;
@@ -16,8 +17,6 @@ extern "C" {
   fn bb_internal_getpwuid(__uid: uid_t) -> *mut passwd;
   #[no_mangle]
   fn xopen(pathname: *const libc::c_char, flags: libc::c_int) -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut logmode: smallint;
   #[no_mangle]

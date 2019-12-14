@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::appletlib::applet_name;
 use crate::libbb::ptr_to_globals::bb_errno;
 use crate::libbb::xfuncs_printf::xmalloc;
@@ -215,8 +216,6 @@ extern "C" {
   fn bb_daemonize_or_rexec(flags: libc::c_int);
   #[no_mangle]
   fn bb_sanitize_stdio();
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn write_pidfile_std_path_and_ext(path: *const libc::c_char);
   #[no_mangle]

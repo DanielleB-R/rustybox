@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::librb::uoff_t;
 
 use libc;
@@ -55,8 +56,6 @@ extern "C" {
   #[no_mangle]
   fn fopen_for_read(path: *const libc::c_char) -> *mut FILE;
 
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
 
   #[no_mangle]
   fn bb_cat(argv: *mut *mut libc::c_char) -> libc::c_int;

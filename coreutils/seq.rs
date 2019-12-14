@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use libc;
 use libc::printf;
@@ -16,8 +17,6 @@ extern "C" {
   fn bb_putchar(ch: libc::c_int) -> libc::c_int;
   #[no_mangle]
   fn fflush_all() -> libc::c_int;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   fn bb_show_usage() -> !;
 }

@@ -1,3 +1,4 @@
+use crate::libbb::getopt32::getopt32;
 use crate::libbb::ptr_to_globals::bb_errno;
 use c2rust_asm_casts;
 use c2rust_asm_casts::AsmCastTrait;
@@ -55,8 +56,6 @@ extern "C" {
   fn spawn(argv: *mut *mut libc::c_char) -> pid_t;
   #[no_mangle]
   fn safe_waitpid(pid: pid_t, wstat: *mut libc::c_int, options: libc::c_int) -> pid_t;
-  #[no_mangle]
-  fn getopt32(argv: *mut *mut libc::c_char, applet_opts: *const libc::c_char, _: ...) -> u32;
   #[no_mangle]
   static mut xfunc_error_retval: u8;
   #[no_mangle]
